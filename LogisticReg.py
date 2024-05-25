@@ -6,7 +6,7 @@ from scipy import sparse
 
 X = sparse.load_npz('Xtrain_matrix.npz')
 y = pd.read_csv('ytrain.csv')
-X_test_final = sparse.load_npz('Xtrain_matrix.npz')
+X_test_final = sparse.load_npz('Xtest_matrix.npz')
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
