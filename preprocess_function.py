@@ -55,3 +55,10 @@ def keeping_essentiel(text): # remove all special characters
     """
     text = re.sub(r"[^a-zA-Z]+", " ", text)
     return text
+
+def create_text(text1, text2):
+    if pd.isna(text2):
+        text = text1
+    else:
+        text = text1 + text2
+    return text
