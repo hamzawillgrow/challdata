@@ -6,7 +6,7 @@ from scipy import sparse
 
 X = sparse.load_npz('Xtrain_matrix.npz')
 y = pd.read_csv('ytrain.csv')
-
+X_test_final = sparse.load_npz('Xtrain_matrix.npz')
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
@@ -23,8 +23,15 @@ y_pred = pd.DataFrame(y_pred, columns=['prdtypecode'])
 #  Classe classification_report pour afficher les résultats 
 from sklearn.metrics import classification_report
 
+#Save the model
+import joblib
+joblib.dump(clf, 'LogisticReg.pkl')
+
 result = classification_report(y_test['prdtypecode'], y_pred)
 print("Classification report :")
 print(result)
 
 print("Score : "+str(clf.score(X_test, y_test['prdtypecode'])))
+
+y_pred = clf.predict(X_test_final)
+np.savetxt('ytest_pred.csv', y_pred.astype(int), delimiter=',')
