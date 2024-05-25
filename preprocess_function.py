@@ -32,6 +32,26 @@ def remove_accent(string):
     
     return string
 
-def lower_case(text):
+def lower_case(text): # convert all text to lower case
+    """
+    args: string
+    return: string
+    """
     text = text.lower().strip()
+    return text
+
+def remove_htmltags(text): # remove all html tags
+    """
+    args: string
+    return: string
+    """
+    text = re.sub('<[^<]+?>', '',text)
+    return text
+
+def keeping_essentiel(text): # remove all special characters
+    """
+    args: string
+    return: string
+    """
+    text = re.sub(r"[^a-zA-Z]+", " ", text)
     return text
