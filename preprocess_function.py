@@ -31,3 +31,7 @@ def remove_accent(string):
 
     
     return string
+
+def lower_case(text):
+    text = text.lower().strip()
+    return text
