@@ -8,6 +8,7 @@ X = sparse.load_npz('Xtrain_matrix.npz')
 y = pd.read_csv('ytrain.csv')
 X_test_final = sparse.load_npz('Xtest_matrix.npz')
 
+print("X_test_final shape : "+str(X_test_final.shape))
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
@@ -34,4 +35,5 @@ print(result)
 print("Score : "+str(clf.score(X_test, y_test['prdtypecode'])))
 
 y_pred = clf.predict(X_test_final)
+y_pred = y_pred.astype(int)
 np.savetxt('ytest_pred.csv', y_pred.astype(int), delimiter=',')
