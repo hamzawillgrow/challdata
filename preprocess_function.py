@@ -1,4 +1,5 @@
 import re
+import pandas as pd
 
 def remove_accent(string):
     """
@@ -30,22 +31,3 @@ def remove_accent(string):
 
     
     return string
-
-def lower_case(text):
-    text = text.lower().strip()
-    return text
-
-def create_text(text1, text2):
-    if pd.isna(text2):
-        text = text1
-    else:
-        text = text1 + text2
-    return text
-
-def removltags(text):
-    text = re.sub('<[^<]+?>', '',text)
-    return text
-
-def keeping_essentiel(text):
-    text = re.sub(r"[^a-zA-Z]+", " ", text)
-    return text
