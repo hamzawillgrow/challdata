@@ -29,5 +29,5 @@ df.columns = ['','prdtypecode']
 print(df2.shape)
 print(df.shape)
 print(df)
-df.astype(int).to_csv('ytest2.csv', index=False,header=True)
+df.astype(int).to_csv('ytest_unmapped.csv', index=False,header=True)
 
